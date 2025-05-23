@@ -1,0 +1,1 @@
+<view><view class="box"><view class="circle" style="{{$root.s0}}"><view class="left" style="{{$root.s1}}"><view class="left-circle" style="{{$root.s2}}"></view></view><view class="right" style="{{$root.s3}}"><view class="right-circle" style="{{$root.s4}}"></view></view><view class="inner" style="{{$root.s5}}"><slot></slot></view></view></view></view>

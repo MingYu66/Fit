@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BoheWenzhangMapper">
+    
+    <resultMap type="BoheWenzhang" id="BoheWenzhangResult">
+        <result property="id"    column="id"    />
+        <result property="content"    column="content"    />
+        <result property="title"    column="title"    />
+        <result property="img"    column="img"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectBoheWenzhangVo">
+        select id, content, title, img, create_time from bohe_wenzhang
+    </sql>
+
+    <select id="selectBoheWenzhangList" parameterType="BoheWenzhang" resultMap="BoheWenzhangResult">
+        <include refid="selectBoheWenzhangVo"/>
+        <where>  
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="img != null  and img != ''"> and img = #{img}</if>
+        </where>
+    </select>
+    
+    <select id="selectBoheWenzhangById" parameterType="Long" resultMap="BoheWenzhangResult">
+        <include refid="selectBoheWenzhangVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBoheWenzhang" parameterType="BoheWenzhang" useGeneratedKeys="true" keyProperty="id">
+        insert into bohe_wenzhang
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">content,</if>
+            <if test="title != null">title,</if>
+            <if test="img != null">img,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="content != null">#{content},</if>
+            <if test="title != null">#{title},</if>
+            <if test="img != null">#{img},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBoheWenzhang" parameterType="BoheWenzhang">
+        update bohe_wenzhang
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="content != null">content = #{content},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="img != null">img = #{img},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBoheWenzhangById" parameterType="Long">
+        delete from bohe_wenzhang where id = #{id}
+    </delete>
+
+    <delete id="deleteBoheWenzhangByIds" parameterType="String">
+        delete from bohe_wenzhang where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

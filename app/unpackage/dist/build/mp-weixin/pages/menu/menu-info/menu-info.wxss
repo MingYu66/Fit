@@ -1,0 +1,1 @@
+.card{border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.1);padding:20px}.gui-grids4{width:172rpx}.card-body{margin-top:50rpx;padding:20rpx;background-color:#fff}.t_c view{margin-top:5rpx}.yuan_text{width:30%;text-align:center}.nav{margin:20rpx 0 20rpx 0}.btna{width:160rpx;height:64rpx;background:#06d368;border-radius:50rpx;display:flex;justify-content:center;align-items:center}

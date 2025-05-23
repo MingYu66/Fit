@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhCategoriesMapper">
+    
+    <resultMap type="BhCategories" id="BhCategoriesResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="imageUrl"    column="image_url"    />
+        <result property="subCategoryCount"    column="sub_category_count"    />
+        <result property="subCategories"    column="sub_categories"    />
+        <result property="description"    column="description"    />
+    </resultMap>
+
+    <resultMap id="BhCategoriesBhFoodResult" type="BhCategories" extends="BhCategoriesResult">
+<!--        <collection property="bhFoodList" notNullColumn="sub_id" javaType="java.util.List" resultMap="BhFoodResult" />-->
+    </resultMap>
+
+    <resultMap type="BhFood" id="BhFoodResult">
+        <result property="id"    column="sub_id"    />
+        <result property="code"    column="sub_code"    />
+        <result property="name"    column="sub_name"    />
+        <result property="thumbImageUrl"    column="sub_thumb_image_url"    />
+        <result property="isLiquid"    column="sub_is_liquid"    />
+        <result property="healthLight"    column="sub_health_light"    />
+        <result property="weight"    column="sub_weight"    />
+        <result property="calory"    column="sub_calory"    />
+        <result property="fat"    column="sub_fat"    />
+        <result property="protein"    column="sub_protein"    />
+        <result property="fiberDietary"    column="sub_fiber_dietary"    />
+        <result property="carbohydrate"    column="sub_carbohydrate"    />
+        <result property="vitaminA"    column="sub_vitamin_a"    />
+        <result property="thiamine"    column="sub_thiamine"    />
+        <result property="lactoflavin"    column="sub_lactoflavin"    />
+        <result property="vitaminC"    column="sub_vitamin_c"    />
+        <result property="vitaminE"    column="sub_vitamin_e"    />
+        <result property="niacin"    column="sub_niacin"    />
+        <result property="natrium"    column="sub_natrium"    />
+        <result property="calcium"    column="sub_calcium"    />
+        <result property="iron"    column="sub_iron"    />
+        <result property="kalium"    column="sub_kalium"    />
+        <result property="iodine"    column="sub_iodine"    />
+        <result property="zinc"    column="sub_zinc"    />
+        <result property="selenium"    column="sub_selenium"    />
+        <result property="magnesium"    column="sub_magnesium"    />
+        <result property="copper"    column="sub_copper"    />
+        <result property="manganese"    column="sub_manganese"    />
+        <result property="cholesterol"    column="sub_cholesterol"    />
+        <result property="folacin"    column="sub_folacin"    />
+        <result property="saturatedFat"    column="sub_saturated_fat"    />
+        <result property="sugar"    column="sub_sugar"    />
+        <result property="vitaminB6"    column="sub_vitamin_b6"    />
+        <result property="phosphor"    column="sub_phosphor"    />
+        <result property="gi"    column="sub_gi"    />
+        <result property="gl"    column="sub_gl"    />
+        <result property="pid"    column="sub_pid"    />
+    </resultMap>
+
+    <sql id="selectBhCategoriesVo">
+        select id, name, image_url, sub_category_count, sub_categories, description from bh_categories
+    </sql>
+
+    <select id="selectBhCategoriesList" parameterType="BhCategories" resultMap="BhCategoriesResult">
+        <include refid="selectBhCategoriesVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+        </where>
+    </select>
+        <select id="selectBhCategoriesById" parameterType="Long" resultMap="BhCategoriesBhFoodResult">
+            <include refid="selectBhCategoriesVo"/>
+            where id = #{id}
+        </select>
+<!--    <select id="selectBhCategoriesById" parameterType="Long" resultMap="BhCategoriesBhFoodResult">-->
+<!--        select a.id, a.name, a.image_url, a.sub_category_count, a.sub_categories, a.description,-->
+<!-- b.id as sub_id, b.code as sub_code, b.name as sub_name, b.thumb_image_url as sub_thumb_image_url, b.is_liquid as sub_is_liquid, b.health_light as sub_health_light, b.weight as sub_weight, b.calory as sub_calory, b.fat as sub_fat, b.protein as sub_protein, b.fiber_dietary as sub_fiber_dietary, b.carbohydrate as sub_carbohydrate, b.vitamin_a as sub_vitamin_a, b.thiamine as sub_thiamine, b.lactoflavin as sub_lactoflavin, b.vitamin_c as sub_vitamin_c, b.vitamin_e as sub_vitamin_e, b.niacin as sub_niacin, b.natrium as sub_natrium, b.calcium as sub_calcium, b.iron as sub_iron, b.kalium as sub_kalium, b.iodine as sub_iodine, b.zinc as sub_zinc, b.selenium as sub_selenium, b.magnesium as sub_magnesium, b.copper as sub_copper, b.manganese as sub_manganese, b.cholesterol as sub_cholesterol, b.folacin as sub_folacin, b.saturated_fat as sub_saturated_fat, b.sugar as sub_sugar, b.vitamin_b6 as sub_vitamin_b6, b.phosphor as sub_phosphor, b.gi as sub_gi, b.gl as sub_gl, b.pid as sub_pid-->
+<!--        from bh_categories a-->
+<!--        left join bh_food b on b.pid = a.id-->
+<!--        where a.id = #{id}-->
+<!--    </select>-->
+        
+    <insert id="insertBhCategories" parameterType="BhCategories" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_categories
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="imageUrl != null">image_url,</if>
+            <if test="subCategoryCount != null">sub_category_count,</if>
+            <if test="subCategories != null">sub_categories,</if>
+            <if test="description != null">description,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="imageUrl != null">#{imageUrl},</if>
+            <if test="subCategoryCount != null">#{subCategoryCount},</if>
+            <if test="subCategories != null">#{subCategories},</if>
+            <if test="description != null">#{description},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhCategories" parameterType="BhCategories">
+        update bh_categories
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="subCategoryCount != null">sub_category_count = #{subCategoryCount},</if>
+            <if test="subCategories != null">sub_categories = #{subCategories},</if>
+            <if test="description != null">description = #{description},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhCategoriesById" parameterType="Long">
+        delete from bh_categories where id = #{id}
+    </delete>
+
+    <delete id="deleteBhCategoriesByIds" parameterType="String">
+        delete from bh_categories where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <delete id="deleteBhFoodByPids" parameterType="String">
+        delete from bh_food where pid in 
+        <foreach item="pid" collection="array" open="(" separator="," close=")">
+            #{pid}
+        </foreach>
+    </delete>
+
+    <delete id="deleteBhFoodByPid" parameterType="Long">
+        delete from bh_food where pid = #{pid}
+    </delete>
+
+    <insert id="batchBhFood">
+        insert into bh_food( id, code, name, thumb_image_url, is_liquid, health_light, weight, calory, fat, protein, fiber_dietary, carbohydrate, vitamin_a, thiamine, lactoflavin, vitamin_c, vitamin_e, niacin, natrium, calcium, iron, kalium, iodine, zinc, selenium, magnesium, copper, manganese, cholesterol, folacin, saturated_fat, sugar, vitamin_b6, phosphor, gi, gl, pid) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.id}, #{item.code}, #{item.name}, #{item.thumbImageUrl}, #{item.isLiquid}, #{item.healthLight}, #{item.weight}, #{item.calory}, #{item.fat}, #{item.protein}, #{item.fiberDietary}, #{item.carbohydrate}, #{item.vitaminA}, #{item.thiamine}, #{item.lactoflavin}, #{item.vitaminC}, #{item.vitaminE}, #{item.niacin}, #{item.natrium}, #{item.calcium}, #{item.iron}, #{item.kalium}, #{item.iodine}, #{item.zinc}, #{item.selenium}, #{item.magnesium}, #{item.copper}, #{item.manganese}, #{item.cholesterol}, #{item.folacin}, #{item.saturatedFat}, #{item.sugar}, #{item.vitaminB6}, #{item.phosphor}, #{item.gi}, #{item.gl}, #{item.pid})
+        </foreach>
+    </insert>
+</mapper>

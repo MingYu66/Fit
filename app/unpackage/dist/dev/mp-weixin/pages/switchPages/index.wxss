@@ -1,0 +1,188 @@
+
+.card.data-v-4a77164a {
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+
+/* 一行4格演示 */
+.gui-grids4.data-v-4a77164a {
+	width: 172rpx;
+}
+.card-body.data-v-4a77164a {
+	margin-top: 50rpx;
+	padding: 20rpx;
+	background-color: white;
+	/* border: 1upx solid red; */
+}
+.t_c view.data-v-4a77164a {
+	margin-top: 5rpx;
+}
+.yuan_text.data-v-4a77164a {
+	width: 30%;
+	text-align: center;
+}
+.nav.data-v-4a77164a {
+	margin: 20rpx 0 20rpx 0;
+}
+.btna.data-v-4a77164a {
+	width: 160rpx;
+	height: 64rpx;
+	background: #06D368;
+	border-radius: 50rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.btn.data-v-4a77164a {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.btn_name.data-v-4a77164a {
+	font-size: 32rpx;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+.gui-card-view.data-v-4a77164a {
+	background-color: #FFFFFF;
+	padding: 25rpx;
+}
+.gui-card-body.data-v-4a77164a {
+	padding-bottom: 25rpx;
+}
+.gui-card-img.data-v-4a77164a {
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 80rpx;
+}
+.gui-card-desc.data-v-4a77164a {
+	width: 400rpx;
+	margin-left: 25rpx;
+	flex: 1;
+}
+.gui-card-name.data-v-4a77164a {
+	font-size: 28rpx;
+	color: #333333;
+	line-height: 40rpx;
+	margin-right: 20rpx;
+}
+.gui-card-text.data-v-4a77164a {
+	line-height: 40rpx;
+	font-size: 24rpx;
+	color: #888888;
+}
+.gui-card-footer.data-v-4a77164a {
+	margin-top: 25rpx;
+}
+.gui-card-footer-item.data-v-4a77164a {
+	width: 100rpx;
+	text-align: center;
+	flex: 1;
+	line-height: 38rpx;
+	font-size: 26rpx;
+	color: #666666;
+}
+
+
+/* #ifndef APP-NVUE */
+.gui-card-footer-item.data-v-4a77164a {
+	display: block;
+}
+.gui-box-shadow.data-v-4a77164a {
+	box-shadow: 0px 0px 3rpx #999999;
+}
+.modal-btns.data-v-4a77164a {
+	line-height: 88rpx;
+	font-size: 26rpx;
+	text-align: center;
+	width: 200rpx;
+}
+.pendant.data-v-4a77164a {
+	width: 88rpx;
+	height: 88rpx;
+	border-radius: 88rpx;
+	text-align: center;
+	line-height: 88rpx;
+	font-size: 55rpx;
+}
+
+
+/* 搜索组件 */
+.search-warp.data-v-4a77164a {
+	width: 98%;
+	padding: 5rpx 0rpx 0rpx 0rpx;
+}
+.gui-footer-icon-buttons.data-v-4a77164a {
+	width: 130rpx;
+	height: 80rpx;
+	padding: 10rpx;
+	flex: 1;
+	position: relative;
+	margin: 0;
+	background-color: #F8F8F8;
+}
+.gui-footer-buttons-ab.data-v-4a77164a {
+	position: absolute;
+	z-index: 101;
+	left: 325rpx;
+	top: 0rpx;
+	width: 110rpx;
+	height: 150rpx;
+}
+.gui-footer-buttons-ab-icon.data-v-4a77164a {
+	width: 110rpx;
+	height: 110rpx;
+	line-height: 120rpx;
+	text-align: center;
+	font-size: 68rpx;
+	background-color: #F7F8FA;
+	border-radius: 100rpx;
+}
+.btnImg.data-v-4a77164a {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.chi-list.data-v-4a77164a {
+	display: none;
+}
+
+
+/* 请根据实际需求修改父元素尺寸，组件自动识别宽高 */
+.charts-box.data-v-4a77164a {
+	width: 100%;
+	height: 300px;
+	background-color: white;
+}
+.demo.data-v-4a77164a {
+	width: 210rpx;
+	height: 120rpx;
+	background-color: #ffffff;
+	line-height: 80rpx;
+	font-size: 22rpx;
+	text-align: center;
+	margin: 10rpx;
+	border-right: 1rpx solid #f6f7fa;
+}
+.demo1.data-v-4a77164a {
+	width: 210rpx;
+	height: 120rpx;
+	background-color: #ffffff;
+	line-height: 80rpx;
+	font-size: 22rpx;
+	text-align: center;
+	margin: 10rpx;
+}
+.demo view.data-v-4a77164a {
+	height: 30px;
+}
+.demo1 view.data-v-4a77164a {
+	height: 30px;
+}
+.demo-content.data-v-4a77164a {
+	color: black;
+	font-size: 36rpx;
+}
+

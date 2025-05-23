@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "食物信息",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "l-circle": "/uni_modules/lime-circle/components/l-circle/l-circle",
+    "gui-modal": "/GraceUI5/components/gui-modal",
+    "uni-data-select": "/uni_modules/uni-data-select/components/uni-data-select/uni-data-select"
+  }
+}

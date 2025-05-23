@@ -1,0 +1,15 @@
+
+.card-body {
+		margin-top: 50rpx;
+		padding: 20rpx;
+		background-color: white;
+		/* border: 1upx solid red; */
+}
+.nav {
+		margin: 20rpx 0 20rpx 0;
+}
+.yuan_text {
+		width: 30%;
+		text-align: center;
+}
+

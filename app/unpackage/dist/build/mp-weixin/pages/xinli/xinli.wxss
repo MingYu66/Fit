@@ -1,0 +1,1 @@
+.gui-card-item{width:330rpx;margin-bottom:30rpx}.gui-card-img{width:330rpx;height:191rpx;overflow:hidden;position:relative}.gui-card-title{margin-top:3px}.gui-card-desc{margin-top:3px}.gui-card-tip{width:68rpx;height:40rpx;line-height:40rpx;text-align:center}.gui-card-mask-title{line-height:40rpx;padding:10rpx;width:330rpx}

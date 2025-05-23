@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhShopMapper">
+    
+    <resultMap type="BhShop" id="BhShopResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="price"    column="price"    />
+        <result property="content"    column="content"    />
+        <result property="videoFile"    column="video_file"    />
+        <result property="imgs"    column="imgs"    />
+        <result property="img"    column="img"    />
+        <result property="sort"    column="sort"    />
+        <result property="isTop"    column="is_top"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectBhShopVo">
+        select id, title, price, content, video_file, imgs, img, sort, is_top, create_by, create_time, update_by, update_time, remark from bh_shop
+    </sql>
+
+    <select id="selectBhShopList" parameterType="BhShop" resultMap="BhShopResult">
+        <include refid="selectBhShopVo"/>
+        <where>  
+            <if test="id != null "> and id = #{id}</if>
+            <if test="title != null  and title != ''"> and title like concat('%', #{title}, '%')</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="videoFile != null  and videoFile != ''"> and video_file = #{videoFile}</if>
+            <if test="imgs != null  and imgs != ''"> and imgs = #{imgs}</if>
+            <if test="img != null  and img != ''"> and img = #{img}</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="isTop != null "> and is_top = #{isTop}</if>
+            <if test="createTime != null "> and create_time = #{createTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhShopById" parameterType="Long" resultMap="BhShopResult">
+        <include refid="selectBhShopVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBhShop" parameterType="BhShop" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_shop
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null">title,</if>
+            <if test="price != null">price,</if>
+            <if test="content != null">content,</if>
+            <if test="videoFile != null">video_file,</if>
+            <if test="imgs != null">imgs,</if>
+            <if test="img != null">img,</if>
+            <if test="sort != null">sort,</if>
+            <if test="isTop != null">is_top,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null">#{title},</if>
+            <if test="price != null">#{price},</if>
+            <if test="content != null">#{content},</if>
+            <if test="videoFile != null">#{videoFile},</if>
+            <if test="imgs != null">#{imgs},</if>
+            <if test="img != null">#{img},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="isTop != null">#{isTop},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhShop" parameterType="BhShop">
+        update bh_shop
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null">title = #{title},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="videoFile != null">video_file = #{videoFile},</if>
+            <if test="imgs != null">imgs = #{imgs},</if>
+            <if test="img != null">img = #{img},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="isTop != null">is_top = #{isTop},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhShopById" parameterType="Long">
+        delete from bh_shop where id = #{id}
+    </delete>
+
+    <delete id="deleteBhShopByIds" parameterType="String">
+        delete from bh_shop where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

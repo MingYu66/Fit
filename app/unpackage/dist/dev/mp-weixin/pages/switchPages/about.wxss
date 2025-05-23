@@ -1,0 +1,83 @@
+
+.ucenter-face {
+	width: 100rpx;
+	height: 100rpx;
+}
+.ucenter-face-image {
+	width: 100rpx;
+	height: 100rpx;
+}
+.ucenter-line {
+	height: 20rpx;
+	background-color: #F6F7F8;
+	margin: 16rpx 0;
+}
+.logoff {
+	line-height: 88rpx;
+	font-size: 28rpx;
+}
+.gui-list-title-text {
+	line-height: 60rpx;
+}
+.gui-footer-icon-buttons {
+	width: 130rpx;
+	height: 80rpx;
+	padding: 10rpx;
+	flex: 1;
+	position: relative;
+	margin: 0;
+	background-color: #F8F8F8;
+}
+.gui-footer-buttons-ab {
+	position: absolute;
+	z-index: 101;
+	left: 325rpx;
+	top: 0rpx;
+	width: 110rpx;
+	height: 150rpx;
+}
+.gui-footer-buttons-ab-icon {
+	width: 110rpx;
+	height: 110rpx;
+	line-height: 120rpx;
+	text-align: center;
+	font-size: 68rpx;
+	background-color: #F7F8FA;
+	border-radius: 100rpx;
+}
+
+/* 请根据实际需求修改父元素尺寸，组件自动识别宽高 */
+.charts-box {
+	width: 100%;
+	height: 300px;
+}
+.demo {
+	width: 210rpx;
+	height: 120rpx;
+	background-color: #ffffff;
+	line-height: 80rpx;
+	font-size: 22rpx;
+	text-align: center;
+	margin: 10rpx;
+	border-right: 1rpx solid #f6f7fa;
+}
+.demo1 {
+	width: 210rpx;
+	height: 120rpx;
+	background-color: #ffffff;
+	line-height: 80rpx;
+	font-size: 22rpx;
+	text-align: center;
+	margin: 10rpx;
+}
+.demo view {
+	height: 30px;
+}
+.demo1 view {
+	height: 30px;
+}
+.demo-content {
+	color: black;
+	font-size: 36rpx;
+}
+

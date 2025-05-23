@@ -1,0 +1,39 @@
+
+		{
+		"id": 56,
+		"code": "mifan_zheng",
+		"name": "米饭",
+		"thumb_image_url": "https://s.boohee.cn/house/upload_food/2022/1/18/slim_mid_photo_url_big_photo_url_f81e8de29f76e6d0c39d4142fe45764f.jpg?x-oss-process=image/resize,w_200,h_200",
+		"is_liquid": false,
+		"health_light": 1,
+		"weight": "100", //g
+		"calory": "116", //千卡
+		"fat": "0.3", //脂肪
+		"protein": "2.6", //蛋白质
+		"fiber_dietary": "0.3", //膳食纤维
+		"carbohydrate": "25.9", //碳水化合物
+		"vitamin_a": "0.0", //维生素A
+		"thiamine": "0.02",
+		"lactoflavin": "0.03",
+		"vitamin_c": "0.0",
+		"vitamin_e": "0.0",
+		"niacin": "1.9",
+		"natrium": "2.5",
+		"calcium": "7.0",
+		"iron": "1.3",
+		"kalium": "30.0",
+		"iodine": "0.0",
+		"zinc": "0.92",
+		"selenium": "0.4",
+		"magnesium": "15.0",
+		"copper": "0.06",
+		"manganese": "0.58",
+		"cholesterol": "0.0",
+		"folacin": "3.4",
+		"saturated_fat": "0.0",
+		"sugar": "",
+		"vitamin_b6": "0.0",
+		"phosphor": "62.0",
+		"gi": "90.0",
+		"gl": "23.0"
+	}

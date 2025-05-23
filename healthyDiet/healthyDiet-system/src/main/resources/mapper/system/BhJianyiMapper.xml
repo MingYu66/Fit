@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhJianyiMapper">
+    
+    <resultMap type="BhJianyi" id="BhJianyiResult">
+        <result property="id"    column="id"    />
+        <result property="content"    column="content"    />
+        <result property="userId"    column="user_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectBhJianyiVo">
+        select id, content, user_id, user_name, create_time from bh_jianyi
+    </sql>
+
+    <select id="selectBhJianyiList" parameterType="BhJianyi" resultMap="BhJianyiResult">
+        <include refid="selectBhJianyiVo"/>
+        <where>  
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectBhJianyiById" parameterType="Long" resultMap="BhJianyiResult">
+        <include refid="selectBhJianyiVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBhJianyi" parameterType="BhJianyi">
+        insert into bh_jianyi
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="content != null">content,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="content != null">#{content},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhJianyi" parameterType="BhJianyi">
+        update bh_jianyi
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="content != null">content = #{content},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhJianyiById" parameterType="Long">
+        delete from bh_jianyi where id = #{id}
+    </delete>
+
+    <delete id="deleteBhJianyiByIds" parameterType="String">
+        delete from bh_jianyi where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

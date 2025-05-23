@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhFoodMapper">
+
+    <resultMap type="BhFood" id="BhFoodResult">
+        <result property="id"    column="id"    />
+        <result property="code"    column="code"    />
+        <result property="name"    column="name"    />
+        <result property="thumbImageUrl"    column="thumb_image_url"    />
+        <result property="isLiquid"    column="is_liquid"    />
+        <result property="healthLight"    column="health_light"    />
+        <result property="weight"    column="weight"    />
+        <result property="calory"    column="calory"    />
+        <result property="fat"    column="fat"    />
+        <result property="protein"    column="protein"    />
+        <result property="fiberDietary"    column="fiber_dietary"    />
+        <result property="carbohydrate"    column="carbohydrate"    />
+        <result property="vitaminA"    column="vitamin_a"    />
+        <result property="thiamine"    column="thiamine"    />
+        <result property="lactoflavin"    column="lactoflavin"    />
+        <result property="vitaminC"    column="vitamin_c"    />
+        <result property="vitaminE"    column="vitamin_e"    />
+        <result property="niacin"    column="niacin"    />
+        <result property="natrium"    column="natrium"    />
+        <result property="calcium"    column="calcium"    />
+        <result property="iron"    column="iron"    />
+        <result property="kalium"    column="kalium"    />
+        <result property="iodine"    column="iodine"    />
+        <result property="zinc"    column="zinc"    />
+        <result property="selenium"    column="selenium"    />
+        <result property="magnesium"    column="magnesium"    />
+        <result property="copper"    column="copper"    />
+        <result property="manganese"    column="manganese"    />
+        <result property="cholesterol"    column="cholesterol"    />
+        <result property="folacin"    column="folacin"    />
+        <result property="saturatedFat"    column="saturated_fat"    />
+        <result property="sugar"    column="sugar"    />
+        <result property="vitaminB6"    column="vitamin_b6"    />
+        <result property="phosphor"    column="phosphor"    />
+        <result property="gi"    column="gi"    />
+        <result property="gl"    column="gl"    />
+        <result property="pid"    column="pid"    />
+        <result property="price"    column="price"    />
+        <result property="descInfo"    column="desc_info"    />
+    </resultMap>
+
+    <sql id="selectBhFoodVo">
+        select id, code, name, thumb_image_url, is_liquid, health_light, weight, calory, fat, protein, fiber_dietary, carbohydrate, vitamin_a, thiamine, lactoflavin, vitamin_c, vitamin_e, niacin, natrium, calcium, iron, kalium, iodine, zinc, selenium, magnesium, copper, manganese, cholesterol, folacin, saturated_fat, sugar, vitamin_b6, phosphor, gi, gl, pid, price, desc_info from bh_food
+    </sql>
+
+    <select id="selectBhFoodList" parameterType="BhFood" resultMap="BhFoodResult">
+        <include refid="selectBhFoodVo"/>
+        <where>
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="thumbImageUrl != null  and thumbImageUrl != ''"> and thumb_image_url = #{thumbImageUrl}</if>
+            <if test="isLiquid != null  and isLiquid != ''"> and is_liquid = #{isLiquid}</if>
+            <if test="healthLight != null "> and health_light = #{healthLight}</if>
+            <if test="weight != null  and weight != ''"> and weight = #{weight}</if>
+            <if test="calory != null  and calory != ''"> and calory = #{calory}</if>
+            <if test="fat != null  and fat != ''"> and fat = #{fat}</if>
+            <if test="protein != null  and protein != ''"> and protein = #{protein}</if>
+            <if test="fiberDietary != null  and fiberDietary != ''"> and fiber_dietary = #{fiberDietary}</if>
+            <if test="carbohydrate != null  and carbohydrate != ''"> and carbohydrate = #{carbohydrate}</if>
+            <if test="vitaminA != null  and vitaminA != ''"> and vitamin_a = #{vitaminA}</if>
+            <if test="thiamine != null  and thiamine != ''"> and thiamine = #{thiamine}</if>
+            <if test="lactoflavin != null  and lactoflavin != ''"> and lactoflavin = #{lactoflavin}</if>
+            <if test="vitaminC != null  and vitaminC != ''"> and vitamin_c = #{vitaminC}</if>
+            <if test="vitaminE != null  and vitaminE != ''"> and vitamin_e = #{vitaminE}</if>
+            <if test="niacin != null  and niacin != ''"> and niacin = #{niacin}</if>
+            <if test="natrium != null  and natrium != ''"> and natrium = #{natrium}</if>
+            <if test="calcium != null  and calcium != ''"> and calcium = #{calcium}</if>
+            <if test="iron != null  and iron != ''"> and iron = #{iron}</if>
+            <if test="kalium != null  and kalium != ''"> and kalium = #{kalium}</if>
+            <if test="iodine != null  and iodine != ''"> and iodine = #{iodine}</if>
+            <if test="zinc != null  and zinc != ''"> and zinc = #{zinc}</if>
+            <if test="selenium != null  and selenium != ''"> and selenium = #{selenium}</if>
+            <if test="magnesium != null  and magnesium != ''"> and magnesium = #{magnesium}</if>
+            <if test="copper != null  and copper != ''"> and copper = #{copper}</if>
+            <if test="manganese != null  and manganese != ''"> and manganese = #{manganese}</if>
+            <if test="cholesterol != null  and cholesterol != ''"> and cholesterol = #{cholesterol}</if>
+            <if test="folacin != null  and folacin != ''"> and folacin = #{folacin}</if>
+            <if test="saturatedFat != null  and saturatedFat != ''"> and saturated_fat = #{saturatedFat}</if>
+            <if test="sugar != null  and sugar != ''"> and sugar = #{sugar}</if>
+            <if test="vitaminB6 != null  and vitaminB6 != ''"> and vitamin_b6 = #{vitaminB6}</if>
+            <if test="phosphor != null  and phosphor != ''"> and phosphor = #{phosphor}</if>
+            <if test="gi != null  and gi != ''"> and gi = #{gi}</if>
+            <if test="gl != null  and gl != ''"> and gl = #{gl}</if>
+            <if test="pid != null "> and pid = #{pid}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="descInfo != null  and descInfo != ''"> and desc_info = #{descInfo}</if>
+        </where>
+        order by id desc
+    </select>
+    <select id="selectBhAIFoodList" parameterType="BhFood" resultMap="BhFoodResult">
+        <include refid="selectBhFoodVo"/>
+        <where>
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="name != null  and name != ''"> and name = #{name} </if>
+            <if test="thumbImageUrl != null  and thumbImageUrl != ''"> and thumb_image_url = #{thumbImageUrl}</if>
+            <if test="isLiquid != null  and isLiquid != ''"> and is_liquid = #{isLiquid}</if>
+            <if test="healthLight != null "> and health_light = #{healthLight}</if>
+            <if test="weight != null  and weight != ''"> and weight = #{weight}</if>
+            <if test="calory != null  and calory != ''"> and calory = #{calory}</if>
+            <if test="fat != null  and fat != ''"> and fat = #{fat}</if>
+            <if test="protein != null  and protein != ''"> and protein = #{protein}</if>
+            <if test="fiberDietary != null  and fiberDietary != ''"> and fiber_dietary = #{fiberDietary}</if>
+            <if test="carbohydrate != null  and carbohydrate != ''"> and carbohydrate = #{carbohydrate}</if>
+            <if test="vitaminA != null  and vitaminA != ''"> and vitamin_a = #{vitaminA}</if>
+            <if test="thiamine != null  and thiamine != ''"> and thiamine = #{thiamine}</if>
+            <if test="lactoflavin != null  and lactoflavin != ''"> and lactoflavin = #{lactoflavin}</if>
+            <if test="vitaminC != null  and vitaminC != ''"> and vitamin_c = #{vitaminC}</if>
+            <if test="vitaminE != null  and vitaminE != ''"> and vitamin_e = #{vitaminE}</if>
+            <if test="niacin != null  and niacin != ''"> and niacin = #{niacin}</if>
+            <if test="natrium != null  and natrium != ''"> and natrium = #{natrium}</if>
+            <if test="calcium != null  and calcium != ''"> and calcium = #{calcium}</if>
+            <if test="iron != null  and iron != ''"> and iron = #{iron}</if>
+            <if test="kalium != null  and kalium != ''"> and kalium = #{kalium}</if>
+            <if test="iodine != null  and iodine != ''"> and iodine = #{iodine}</if>
+            <if test="zinc != null  and zinc != ''"> and zinc = #{zinc}</if>
+            <if test="selenium != null  and selenium != ''"> and selenium = #{selenium}</if>
+            <if test="magnesium != null  and magnesium != ''"> and magnesium = #{magnesium}</if>
+            <if test="copper != null  and copper != ''"> and copper = #{copper}</if>
+            <if test="manganese != null  and manganese != ''"> and manganese = #{manganese}</if>
+            <if test="cholesterol != null  and cholesterol != ''"> and cholesterol = #{cholesterol}</if>
+            <if test="folacin != null  and folacin != ''"> and folacin = #{folacin}</if>
+            <if test="saturatedFat != null  and saturatedFat != ''"> and saturated_fat = #{saturatedFat}</if>
+            <if test="sugar != null  and sugar != ''"> and sugar = #{sugar}</if>
+            <if test="vitaminB6 != null  and vitaminB6 != ''"> and vitamin_b6 = #{vitaminB6}</if>
+            <if test="phosphor != null  and phosphor != ''"> and phosphor = #{phosphor}</if>
+            <if test="gi != null  and gi != ''"> and gi = #{gi}</if>
+            <if test="gl != null  and gl != ''"> and gl = #{gl}</if>
+            <if test="pid != null "> and pid = #{pid}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="descInfo != null  and descInfo != ''"> and desc_info = #{descInfo}</if>
+        </where>
+
+    </select>
+
+    <select id="selectBhFoodById" parameterType="Long" resultMap="BhFoodResult">
+        <include refid="selectBhFoodVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertBhFood" parameterType="BhFood" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_food
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="code != null">code,</if>
+            <if test="name != null">name,</if>
+            <if test="thumbImageUrl != null">thumb_image_url,</if>
+            <if test="isLiquid != null">is_liquid,</if>
+            <if test="healthLight != null">health_light,</if>
+            <if test="weight != null">weight,</if>
+            <if test="calory != null">calory,</if>
+            <if test="fat != null">fat,</if>
+            <if test="protein != null">protein,</if>
+            <if test="fiberDietary != null">fiber_dietary,</if>
+            <if test="carbohydrate != null">carbohydrate,</if>
+            <if test="vitaminA != null">vitamin_a,</if>
+            <if test="thiamine != null">thiamine,</if>
+            <if test="lactoflavin != null">lactoflavin,</if>
+            <if test="vitaminC != null">vitamin_c,</if>
+            <if test="vitaminE != null">vitamin_e,</if>
+            <if test="niacin != null">niacin,</if>
+            <if test="natrium != null">natrium,</if>
+            <if test="calcium != null">calcium,</if>
+            <if test="iron != null">iron,</if>
+            <if test="kalium != null">kalium,</if>
+            <if test="iodine != null">iodine,</if>
+            <if test="zinc != null">zinc,</if>
+            <if test="selenium != null">selenium,</if>
+            <if test="magnesium != null">magnesium,</if>
+            <if test="copper != null">copper,</if>
+            <if test="manganese != null">manganese,</if>
+            <if test="cholesterol != null">cholesterol,</if>
+            <if test="folacin != null">folacin,</if>
+            <if test="saturatedFat != null">saturated_fat,</if>
+            <if test="sugar != null">sugar,</if>
+            <if test="vitaminB6 != null">vitamin_b6,</if>
+            <if test="phosphor != null">phosphor,</if>
+            <if test="gi != null">gi,</if>
+            <if test="gl != null">gl,</if>
+            <if test="pid != null">pid,</if>
+            <if test="price != null">price,</if>
+            <if test="descInfo != null">desc_info,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="code != null">#{code},</if>
+            <if test="name != null">#{name},</if>
+            <if test="thumbImageUrl != null">#{thumbImageUrl},</if>
+            <if test="isLiquid != null">#{isLiquid},</if>
+            <if test="healthLight != null">#{healthLight},</if>
+            <if test="weight != null">#{weight},</if>
+            <if test="calory != null">#{calory},</if>
+            <if test="fat != null">#{fat},</if>
+            <if test="protein != null">#{protein},</if>
+            <if test="fiberDietary != null">#{fiberDietary},</if>
+            <if test="carbohydrate != null">#{carbohydrate},</if>
+            <if test="vitaminA != null">#{vitaminA},</if>
+            <if test="thiamine != null">#{thiamine},</if>
+            <if test="lactoflavin != null">#{lactoflavin},</if>
+            <if test="vitaminC != null">#{vitaminC},</if>
+            <if test="vitaminE != null">#{vitaminE},</if>
+            <if test="niacin != null">#{niacin},</if>
+            <if test="natrium != null">#{natrium},</if>
+            <if test="calcium != null">#{calcium},</if>
+            <if test="iron != null">#{iron},</if>
+            <if test="kalium != null">#{kalium},</if>
+            <if test="iodine != null">#{iodine},</if>
+            <if test="zinc != null">#{zinc},</if>
+            <if test="selenium != null">#{selenium},</if>
+            <if test="magnesium != null">#{magnesium},</if>
+            <if test="copper != null">#{copper},</if>
+            <if test="manganese != null">#{manganese},</if>
+            <if test="cholesterol != null">#{cholesterol},</if>
+            <if test="folacin != null">#{folacin},</if>
+            <if test="saturatedFat != null">#{saturatedFat},</if>
+            <if test="sugar != null">#{sugar},</if>
+            <if test="vitaminB6 != null">#{vitaminB6},</if>
+            <if test="phosphor != null">#{phosphor},</if>
+            <if test="gi != null">#{gi},</if>
+            <if test="gl != null">#{gl},</if>
+            <if test="pid != null">#{pid},</if>
+            <if test="price != null">#{price},</if>
+            <if test="descInfo != null">#{descInfo},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBhFood" parameterType="BhFood">
+        update bh_food
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="code != null">code = #{code},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="thumbImageUrl != null">thumb_image_url = #{thumbImageUrl},</if>
+            <if test="isLiquid != null">is_liquid = #{isLiquid},</if>
+            <if test="healthLight != null">health_light = #{healthLight},</if>
+            <if test="weight != null">weight = #{weight},</if>
+            <if test="calory != null">calory = #{calory},</if>
+            <if test="fat != null">fat = #{fat},</if>
+            <if test="protein != null">protein = #{protein},</if>
+            <if test="fiberDietary != null">fiber_dietary = #{fiberDietary},</if>
+            <if test="carbohydrate != null">carbohydrate = #{carbohydrate},</if>
+            <if test="vitaminA != null">vitamin_a = #{vitaminA},</if>
+            <if test="thiamine != null">thiamine = #{thiamine},</if>
+            <if test="lactoflavin != null">lactoflavin = #{lactoflavin},</if>
+            <if test="vitaminC != null">vitamin_c = #{vitaminC},</if>
+            <if test="vitaminE != null">vitamin_e = #{vitaminE},</if>
+            <if test="niacin != null">niacin = #{niacin},</if>
+            <if test="natrium != null">natrium = #{natrium},</if>
+            <if test="calcium != null">calcium = #{calcium},</if>
+            <if test="iron != null">iron = #{iron},</if>
+            <if test="kalium != null">kalium = #{kalium},</if>
+            <if test="iodine != null">iodine = #{iodine},</if>
+            <if test="zinc != null">zinc = #{zinc},</if>
+            <if test="selenium != null">selenium = #{selenium},</if>
+            <if test="magnesium != null">magnesium = #{magnesium},</if>
+            <if test="copper != null">copper = #{copper},</if>
+            <if test="manganese != null">manganese = #{manganese},</if>
+            <if test="cholesterol != null">cholesterol = #{cholesterol},</if>
+            <if test="folacin != null">folacin = #{folacin},</if>
+            <if test="saturatedFat != null">saturated_fat = #{saturatedFat},</if>
+            <if test="sugar != null">sugar = #{sugar},</if>
+            <if test="vitaminB6 != null">vitamin_b6 = #{vitaminB6},</if>
+            <if test="phosphor != null">phosphor = #{phosphor},</if>
+            <if test="gi != null">gi = #{gi},</if>
+            <if test="gl != null">gl = #{gl},</if>
+            <if test="pid != null">pid = #{pid},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="descInfo != null">desc_info = #{descInfo},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhFoodById" parameterType="Long">
+        delete from bh_food where id = #{id}
+    </delete>
+
+    <delete id="deleteBhFoodByIds" parameterType="String">
+        delete from bh_food where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

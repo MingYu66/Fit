@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "社区",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-demo-header": "/GraceUI5/components/gui-demo-header",
+    "gui-swiper": "/GraceUI5/components/gui-swiper",
+    "gui-switch-navigation": "/GraceUI5/components/gui-switch-navigation",
+    "gui-modal": "/GraceUI5/components/gui-modal",
+    "uni-fab": "/uni_modules/uni-fab/components/uni-fab/uni-fab"
+  }
+}

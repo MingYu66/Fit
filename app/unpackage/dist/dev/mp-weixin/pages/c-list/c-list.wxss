@@ -1,0 +1,72 @@
+
+.demo-close {
+	width: 100rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	opacity: 0.88;
+	text-align: center;
+	font-size: 58rpx;
+}
+.demo-lr {
+	flex: 1;
+	height: 200rpx;
+}
+.demo-lr-items {
+	height: 120rpx;
+	line-height: 120rpx;
+	text-align: center;
+	overflow: hidden;
+}
+.header-search {
+	padding: 20rpx 80rpx;
+	width: 750rpx;
+}
+.gui-cate-left {
+	width: 200rpx;
+	background-color: #F6F7F8;
+}
+.gui-cate-right {
+	width: 520rpx;
+	overflow: hidden;
+}
+.gui-cate-left-item {
+	height: 100rpx;
+	padding: 35rpx 0;
+	font-size: 26rpx;
+}
+.gui-cate-left-item-title {
+	line-height: 32rpx;
+	font-size: 28rpx;
+	border-color: #F6F7F8;
+	border-left-width: 8rpx;
+	text-align: center;
+}
+.gui-cate-left-current {
+	border-color: #FF0066 !important;
+	background-color: #FFFFFF;
+	color: #FF0066;
+	font-weight: bold;
+}
+.gui-cate-right-title {
+	line-height: 80rpx;
+}
+.gui-cate-product-list {
+	margin-bottom: 30rpx;
+	margin-right: 25rpx;
+}
+.gui-cate-pimg {
+	width: 150rpx;
+}
+.gui-cate-pbody {
+	margin-left: 30rpx;
+	width: 100rpx;
+	flex: 1;
+	padding-top: -20rpx;
+}
+.gui-cate-price {
+	font-size: 32rpx;
+	line-height: 60rpx;
+}
+.modal-btns{line-height:88rpx; font-size:26rpx; text-align:center; width:200rpx;}
+
+

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "饮食记录",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-demo-header": "/GraceUI5/components/gui-demo-header",
+    "l-circle": "/uni_modules/lime-circle/components/l-circle/l-circle",
+    "qiun-data-charts": "/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts",
+    "gui-modal": "/GraceUI5/components/gui-modal",
+    "gui-calendar": "/GraceUI5/components/gui-calendar",
+    "count-down": "/components/zh-countDown/countDown/countDown"
+  }
+}

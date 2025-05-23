@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhCaloriesMapper">
+    
+    <resultMap type="BhCalories" id="BhCaloriesResult">
+        <result property="uid"    column="uid"    />
+        <result property="cName"    column="c_name"    />
+        <result property="cId"    column="c_id"    />
+        <result property="cType"    column="c_type"    />
+        <result property="cImg"    column="c_img"    />
+        <result property="cNum"    column="c_num"    />
+        <result property="cWeight"    column="c_weight"    />
+        <result property="cValue"    column="c_value"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectBhCaloriesVo">
+        select uid, c_name, c_id, c_type, c_img, c_num, c_weight, c_value, create_time, remark from bh_calories
+    </sql>
+
+    <select id="selectBhCaloriesList" parameterType="BhCalories" resultMap="BhCaloriesResult">
+        <include refid="selectBhCaloriesVo"/>
+        <where>  
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="cName != null  and cName != ''"> and c_name like concat('%', #{cName}, '%')</if>
+            <if test="cId != null "> and c_id = #{cId}</if>
+            <if test="cType != null "> and c_type = #{cType}</if>
+            <if test="cImg != null  and cImg != ''"> and c_img = #{cImg}</if>
+            <if test="cNum != null "> and c_num = #{cNum}</if>
+            <if test="cWeight != null "> and c_weight = #{cWeight}</if>
+            <if test="cValue != null "> and c_value = #{cValue}</if>
+            <if test="createTime != null "> and create_time =  DATE_FORMAT(#{createTime},'%Y-%m-%d')</if>
+        </where>
+        ORDER BY c_type ASC
+    </select>
+
+    <select id="selectBhCaloriesListByWeight" parameterType="BhCalories" resultMap="BhCaloriesResult">
+        select c_id, SUM(c_weight) from bh_calories
+
+        <where>
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="cName != null  and cName != ''"> and c_name like concat('%', #{cName}, '%')</if>
+            <if test="cId != null "> and c_id = #{cId}</if>
+            <if test="cType != null "> and c_type = #{cType}</if>
+            <if test="cImg != null  and cImg != ''"> and c_img = #{cImg}</if>
+            <if test="cNum != null "> and c_num = #{cNum}</if>
+            <if test="cWeight != null "> and c_weight = #{cWeight}</if>
+            <if test="cValue != null "> and c_value = #{cValue}</if>
+            <if test="createTime != null "> and create_time =  DATE_FORMAT(#{createTime},'%Y-%m-%d')</if>
+        </where>
+        GROUP BY c_id
+    </select>
+    
+    <select id="selectBhCaloriesByUid" parameterType="Long" resultMap="BhCaloriesResult">
+        <include refid="selectBhCaloriesVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertBhCalories" parameterType="BhCalories">
+        insert into bh_calories
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="cName != null">c_name,</if>
+            <if test="cId != null">c_id,</if>
+            <if test="cType != null">c_type,</if>
+            <if test="cImg != null">c_img,</if>
+            <if test="cNum != null">c_num,</if>
+            <if test="cWeight != null">c_weight,</if>
+            <if test="cValue != null">c_value,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="cName != null">#{cName},</if>
+            <if test="cId != null">#{cId},</if>
+            <if test="cType != null">#{cType},</if>
+            <if test="cImg != null">#{cImg},</if>
+            <if test="cNum != null">#{cNum},</if>
+            <if test="cWeight != null">#{cWeight},</if>
+            <if test="cValue != null">#{cValue},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhCalories" parameterType="BhCalories">
+        update bh_calories
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="cName != null">c_name = #{cName},</if>
+            <if test="cId != null">c_id = #{cId},</if>
+            <if test="cType != null">c_type = #{cType},</if>
+            <if test="cImg != null">c_img = #{cImg},</if>
+            <if test="cNum != null">c_num = #{cNum},</if>
+            <if test="cWeight != null">c_weight = #{cWeight},</if>
+            <if test="cValue != null">c_value = #{cValue},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        <where>
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="cId != null "> and c_id = #{cId}</if>
+            <if test="cType != null "> and c_type = #{cType}</if>
+            <if test="createTime != null "> and create_time = #{createTime}</if>
+        </where>
+
+    </update>
+    <delete id="deleteBhCaloriesByOne" parameterType="BhCalories">
+        delete from bh_calories
+        <where>
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="cId != null "> and c_id = #{cId}</if>
+            <if test="cType != null "> and c_type = #{cType}</if>
+            <if test="createTime != null "> and create_time = #{createTime}</if>
+        </where>
+    </delete>
+    <delete id="deleteBhCaloriesByUid" parameterType="Long">
+        delete from bh_calories where uid = #{uid}
+    </delete>
+
+    <delete id="deleteBhCaloriesByUids" parameterType="String">
+        delete from bh_calories where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

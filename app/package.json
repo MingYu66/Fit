@@ -1,0 +1,25 @@
+{
+  "id": "zh-countDown",
+  "name": "圆形倒计时进度条",
+  "displayName": "圆形倒计时进度条",
+  "version": "1.0.2",
+  "description": "圆形倒计时进度条，纯css实现，支持自定义圆环大小，进度条宽度，颜色，倒计时时间，支持圆环中间自定义添加内容；（只支持微信小程序，占用体积小）",
+  "keywords": [
+    "圆环",
+    "圆形",
+    "进度",
+    "到计时"
+  ],
+  "dcloudext": {
+    "category": [
+      "前端组件",
+      "通用组件"
+    ]
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "quill": "^1.3.7",
+    "uview-ui": "^1.8.4",
+    "vue-avatar": "^2.3.3"
+  }
+}

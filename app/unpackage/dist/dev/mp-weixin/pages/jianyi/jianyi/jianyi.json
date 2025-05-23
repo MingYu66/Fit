@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "建议反馈",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-submit-button": "/GraceUI5/components/gui-submit-button"
+  }
+}

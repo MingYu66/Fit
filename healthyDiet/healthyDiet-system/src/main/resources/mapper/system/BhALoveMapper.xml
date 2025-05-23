@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhALoveMapper">
+    
+    <resultMap type="BhALove" id="BhALoveResult">
+        <result property="uid"    column="uid"    />
+        <result property="aid"    column="aid"    />
+    </resultMap>
+
+    <sql id="selectBhALoveVo">
+        select uid, aid from bh_a_love
+    </sql>
+
+    <select id="selectBhALoveList" parameterType="BhALove" resultMap="BhALoveResult">
+        <include refid="selectBhALoveVo"/>
+        <where>  
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="aid != null "> and aid = #{aid}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhALoveByUid" parameterType="Long" resultMap="BhALoveResult">
+        <include refid="selectBhALoveVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertBhALove" parameterType="BhALove">
+        insert into bh_a_love
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="aid != null">aid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="aid != null">#{aid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhALove" parameterType="BhALove">
+        update bh_a_love
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aid != null">aid = #{aid},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteBhALoveByUid" parameterType="BhALove">
+        delete from bh_a_love where uid = #{uid} and aid = #{aid}
+    </delete>
+
+    <delete id="deleteBhALoveByUids" parameterType="String">
+        delete from bh_a_love where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,78 @@
+
+.modal-btns.data-v-12a9e9b4 {
+	line-height: 88rpx;
+	font-size: 26rpx;
+	text-align: center;
+	width: 200rpx;
+}
+.gui-footer-icon-buttons.data-v-12a9e9b4 {
+	width: 130rpx;
+	height: 80rpx;
+	padding: 10rpx;
+	flex: 1;
+	position: relative;
+	margin: 0;
+	background-color: #F8F8F8;
+}
+.gui-footer-buttons-ab.data-v-12a9e9b4 {
+	position: absolute;
+	z-index: 101;
+	left: 325rpx;
+	top: 0rpx;
+	width: 110rpx;
+	height: 150rpx;
+}
+.gui-footer-buttons-ab-icon.data-v-12a9e9b4 {
+	width: 110rpx;
+	height: 110rpx;
+	line-height: 120rpx;
+	text-align: center;
+	font-size: 68rpx;
+	background-color: #F7F8FA;
+	border-radius: 100rpx;
+}
+.avatar-list.data-v-12a9e9b4 {
+	display: flex;
+	gap: 10px;
+}
+.avatar-container.data-v-12a9e9b4 {
+	position: relative;
+	width: 100rpx;
+	height: 100rpx;
+}
+.avatar.data-v-12a9e9b4 {
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+}
+.avatar-canvas.data-v-12a9e9b4 {
+	width: 100rpx;
+	height: 100rpx;
+	position: absolute;
+	/* top: -9999px; */
+	/* 隐藏 Canvas */
+}
+.custom-toolbar.data-v-12a9e9b4 {
+	/* margin-bottom: 45px; */
+	height: 100rpx;
+	border-top: 1rpx solid #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 30rpx;
+	background: #fff;
+}
+.camera-btn.data-v-12a9e9b4 {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+	background: #f0f0f0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.camera-btn icon.data-v-12a9e9b4 {
+	width: 50rpx;
+	height: 50rpx;
+}
+

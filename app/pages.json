@@ -1,0 +1,254 @@
+{
+	"pages": [{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/switchPages/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/switchPages/about",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
+			}
+		}
+		, {
+			"path": "pages/list/list",
+			"style": {
+				"navigationBarTitleText": "列表",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/foodInfo/foodInfo",
+			"style": {
+				"navigationBarTitleText": "食物信息",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		, {
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/c-list/c-list",
+			"style": {
+				"navigationBarTitleText": "列表",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/c-move-list/c-move-list",
+			"style": {
+				"navigationBarTitleText": "运动列表",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/userInfo/userInfo",
+			"style": {
+				"navigationBarTitleText": "用户信息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/myLove/myLove",
+			"style": {
+				"navigationBarTitleText": "我的收藏",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/uSpeak/uSpeak",
+			"style": {
+				"navigationBarTitleText": "社区",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}
+		,
+		{
+			"path": "pages/paizhao/burden-sheet/burden-sheet",
+			"style": {
+				"navigationBarTitleText": "配料表检测",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/paizhao/ai-food/ai-food",
+			"style": {
+				"navigationBarTitleText": "食物识别",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/wenzhang/wenzhang-list/wenzhang-list",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "文章列表"
+			}
+		},
+		{
+			"path": "pages/wenzhang/detail/detail",
+			"style": {
+				"navigationBarTitleText": "健康资讯",
+				"enablePullDownRefresh": false
+			}
+		},
+
+		{
+			"path": "pages/jianyi/jianyi/jianyi",
+			"style": {
+				"navigationBarTitleText": "建议反馈",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/info/info/info",
+			"style": {
+				"navigationBarTitleText": "饮食记录",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/menu/menu-list/menu-list",
+			"style": {
+				"navigationBarTitleText": "食谱列表",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/menu/menu-info/menu-info",
+			"style": {
+				"navigationBarTitleText": "食谱详情",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/info/weight/weight",
+			"style": {
+				"navigationBarTitleText": "体重记录",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/list/food-lists/food-lists",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/zhuanzhu/zhuanzhu",
+			"style": {
+				"navigationBarTitleText": "专注",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/xinli/xinli",
+			"style": {
+				"navigationBarTitleText": "心理疏导",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/xinli/info",
+			"style": {
+				"navigationBarTitleText": "视频",
+				"enablePullDownRefresh": false
+			}
+		}
+		,
+
+		{
+			"path": "pages/ai/ai/ai",
+			"style": {
+				"navigationBarTitleText": "健身小助手",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/note/note",
+			"style": {
+				"navigationBarTitleText": "写笔记",
+				"enablePullDownRefresh": false
+			}
+		}
+		,
+		{
+			"path": "pages/note/list",
+			"style": {
+				"navigationBarTitleText": "笔记",
+				
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path" : "pages/dietPlan/dietPlan",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		}
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "GraceUI",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
+		"app-plus": {
+			"titleNView": false // 取消原生tab导航栏 
+		}
+
+	},
+	"tabBar": {
+		"color": "#B6C3D2",
+		"selectedColor": "#2B2E3D",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"custom": true,
+		"list": [{
+				"pagePath": "pages/switchPages/index",
+				"iconPath": "static/menu_imgs/menu_1.png",
+				"selectedIconPath": "static/menu_imgs/menu_1a.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/uSpeak/uSpeak",
+				"iconPath": "static/menu_imgs/squ.png",
+				"selectedIconPath": "static/menu_imgs/squ2.png",
+				"text": "社区"
+			},
+			{
+				"pagePath": "pages/switchPages/about",
+				"iconPath": "static/menu_imgs/menu_2.png",
+				"selectedIconPath": "static/menu_imgs/menu_2a.png",
+				"text": "我的"
+			}
+		]
+	},
+	"easycom": {
+		"custom": {
+			"autoscan": true,
+			"gui-(.*)": "@/GraceUI5/components/gui-$1.vue"
+		}
+	}
+}

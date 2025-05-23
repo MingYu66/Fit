@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "写笔记",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-header-leading": "/GraceUI5/components/gui-header-leading"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "运动列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-modal": "/GraceUI5/components/gui-modal"
+  }
+}

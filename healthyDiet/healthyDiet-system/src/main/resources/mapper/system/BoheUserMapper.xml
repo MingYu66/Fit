@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BoheUserMapper">
+
+    <resultMap type="BoheUser" id="BoheUserResult">
+        <result property="id"    column="id"    />
+        <result property="username"    column="username"    />
+        <result property="password"    column="password"    />
+        <result property="name"    column="name"    />
+        <result property="sex"    column="sex"    />
+        <result property="age"    column="age"    />
+        <result property="weight"    column="weight"    />
+        <result property="height"    column="height"    />
+        <result property="calory"    column="calory"    />
+        <result property="type"    column="type"    />
+        <result property="money"    column="money"    />
+    </resultMap>
+
+    <sql id="selectBoheUserVo">
+        select id, username, password, name, sex, age, weight, height, calory, type, money from bohe_user
+    </sql>
+
+    <select id="selectBoheUserList" parameterType="BoheUser" resultMap="BoheUserResult">
+        <include refid="selectBoheUserVo"/>
+        <where>
+            <if test="username != null  and username != ''"> and username like concat('%', #{username}, '%')</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sex != null  and sex != ''"> and sex = #{sex}</if>
+            <if test="age != null "> and age = #{age}</if>
+            <if test="weight != null "> and weight = #{weight}</if>
+            <if test="height != null "> and height = #{height}</if>
+            <if test="calory != null "> and calory = #{calory}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="money != null "> and money = #{money}</if>
+        </where>
+    </select>
+
+    <select id="selectBoheUserById" parameterType="Long" resultMap="BoheUserResult">
+        <include refid="selectBoheUserVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertBoheUser" parameterType="BoheUser" useGeneratedKeys="true" keyProperty="id">
+        insert into bohe_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null and username != ''">username,</if>
+            <if test="password != null and password != ''">password,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="sex != null and sex != ''">sex,</if>
+            <if test="age != null">age,</if>
+            <if test="weight != null">weight,</if>
+            <if test="height != null">height,</if>
+            <if test="calory != null">calory,</if>
+            <if test="type != null">type,</if>
+            <if test="money != null">money,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="username != null and username != ''">#{username},</if>
+            <if test="password != null and password != ''">#{password},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="sex != null and sex != ''">#{sex},</if>
+            <if test="age != null">#{age},</if>
+            <if test="weight != null">#{weight},</if>
+            <if test="height != null">#{height},</if>
+            <if test="calory != null">#{calory},</if>
+            <if test="type != null">#{type},</if>
+            <if test="money != null">#{money},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBoheUser" parameterType="BoheUser">
+        update bohe_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="username != null and username != ''">username = #{username},</if>
+            <if test="password != null and password != ''">password = #{password},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="sex != null and sex != ''">sex = #{sex},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="weight != null">weight = #{weight},</if>
+            <if test="height != null">height = #{height},</if>
+            <if test="calory != null">calory = #{calory},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="money != null">money = #{money},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBoheUserById" parameterType="Long">
+        delete from bohe_user where id = #{id}
+    </delete>
+
+    <delete id="deleteBoheUserByIds" parameterType="String">
+        delete from bohe_user where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <select id="selectGroupByType" parameterType="BoheUser" resultMap="BoheUserResult">
+        select count(*) as id, type from bohe_user
+
+        GROUP BY type
+    </select>
+
+</mapper>

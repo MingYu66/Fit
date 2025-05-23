@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhXinliMapper">
+    
+    <resultMap type="BhXinli" id="BhXinliResult">
+        <result property="id"    column="id"    />
+        <result property="mp4"    column="mp4"    />
+        <result property="img"    column="img"    />
+        <result property="title"    column="title"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectBhXinliVo">
+        select id, mp4, img, title, create_time from bh_xinli
+    </sql>
+
+    <select id="selectBhXinliList" parameterType="BhXinli" resultMap="BhXinliResult">
+        <include refid="selectBhXinliVo"/>
+        <where>  
+            <if test="mp4 != null  and mp4 != ''"> and mp4 = #{mp4}</if>
+            <if test="img != null  and img != ''"> and img = #{img}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhXinliById" parameterType="Long" resultMap="BhXinliResult">
+        <include refid="selectBhXinliVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBhXinli" parameterType="BhXinli" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_xinli
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mp4 != null">mp4,</if>
+            <if test="img != null">img,</if>
+            <if test="title != null">title,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mp4 != null">#{mp4},</if>
+            <if test="img != null">#{img},</if>
+            <if test="title != null">#{title},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhXinli" parameterType="BhXinli">
+        update bh_xinli
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mp4 != null">mp4 = #{mp4},</if>
+            <if test="img != null">img = #{img},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhXinliById" parameterType="Long">
+        delete from bh_xinli where id = #{id}
+    </delete>
+
+    <delete id="deleteBhXinliByIds" parameterType="String">
+        delete from bh_xinli where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

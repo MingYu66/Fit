@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "笔记",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "uni-fab": "/uni_modules/uni-fab/components/uni-fab/uni-fab"
+  }
+}

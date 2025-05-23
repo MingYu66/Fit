@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-demo-header": "/GraceUI5/components/gui-demo-header",
+    "gui-search": "/GraceUI5/components/gui-search",
+    "l-circle": "/uni_modules/lime-circle/components/l-circle/l-circle",
+    "gui-modal": "/GraceUI5/components/gui-modal",
+    "count-down": "/components/zh-countDown/countDown/countDown"
+  }
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhFoodmenuMapper">
+    
+    <resultMap type="BhFoodmenu" id="BhFoodmenuResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <resultMap id="BhFoodmenuBhMenuInfoResult" type="BhFoodmenu" extends="BhFoodmenuResult">
+        <collection property="bhMenuInfoList" notNullColumn="sub_id" javaType="java.util.List" resultMap="BhMenuInfoResult" />
+    </resultMap>
+
+    <resultMap type="BhMenuInfo" id="BhMenuInfoResult">
+        <result property="id"    column="sub_id"    />
+        <result property="foodId"    column="sub_food_id"    />
+        <result property="menuId"    column="sub_menu_id"    />
+        <result property="type"    column="sub_type"    />
+    </resultMap>
+
+    <sql id="selectBhFoodmenuVo">
+        select id, title, create_time, remark from bh_foodmenu
+    </sql>
+
+    <select id="selectBhFoodmenuList" parameterType="BhFoodmenu" resultMap="BhFoodmenuResult">
+        <include refid="selectBhFoodmenuVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="remark != null  and remark != ''"> and remark = #{remark}</if>
+
+        </where>
+    </select>
+    
+    <select id="selectBhFoodmenuById" parameterType="Long" resultMap="BhFoodmenuBhMenuInfoResult">
+        select a.id, a.title, a.create_time, a.remark,
+ b.id as sub_id, b.food_id as sub_food_id, b.menu_id as sub_menu_id, b.type as sub_type
+        from bh_foodmenu a
+        left join bh_menu_info b on b.menu_id = a.id
+        where a.id = #{id}
+    </select>
+        
+    <insert id="insertBhFoodmenu" parameterType="BhFoodmenu" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_foodmenu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null">title,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null">#{title},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhFoodmenu" parameterType="BhFoodmenu">
+        update bh_foodmenu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null">title = #{title},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhFoodmenuById" parameterType="Long">
+        delete from bh_foodmenu where id = #{id}
+    </delete>
+
+    <delete id="deleteBhFoodmenuByIds" parameterType="String">
+        delete from bh_foodmenu where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <delete id="deleteBhMenuInfoByMenuIds" parameterType="String">
+        delete from bh_menu_info where menu_id in 
+        <foreach item="menuId" collection="array" open="(" separator="," close=")">
+            #{menuId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteBhMenuInfoByMenuId" parameterType="Long">
+        delete from bh_menu_info where menu_id = #{menuId}
+    </delete>
+
+    <insert id="batchBhMenuInfo">
+        insert into bh_menu_info( id, food_id, menu_id, type) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.id}, #{item.foodId}, #{item.menuId}, #{item.type})
+        </foreach>
+    </insert>
+</mapper>

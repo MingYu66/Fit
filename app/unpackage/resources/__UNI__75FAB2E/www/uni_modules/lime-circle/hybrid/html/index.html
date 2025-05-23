@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lime-circle</title>
+	<style>
+		html,body{
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.lime-circle {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.lime-circle__trail,.lime-circle__stroke {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+		}
+		
+		.lime-circle__inner{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+		}
+		
+		.is-round .lime-circle__trail .cap{
+			position: absolute;
+			display: block;
+			width: var(--l-trail-cap-size, 6px);
+			height: var(--l-trail-cap-size, 6px);
+			background-color: var(--l-trail-cap-color, #ddd);
+			z-index: 10;
+			border-radius: 50%;
+		}
+		
+		.is-round .lime-circle__trail .cap.start {
+			left: var(--l-trail-cap-start-x, 14%);
+			top: var(--l-trail-cap-start-y, 81%);
+		}
+		
+		.is-round .lime-circle__trail .cap.end {
+			left: var(--l-trail-cap-end-x, 14%);
+			top: var(--l-trail-cap-end-y, 81%);
+		}
+		
+		.is-round .lime-circle__stroke .cap{
+			position: absolute;
+			display: block;
+			width: var(--l-stroke-cap-size, 6px);
+			height: var(--l-stroke-cap-size, 6px);
+			background-color: var(--l-stroke-cap-start-color, #ddd);
+			border-radius: 50%;
+			transition: opacity 350ms ease-out;
+			opacity: var(--l-stroke-cap-opacity, 0);
+		}
+		
+		.is-round .lime-circle__stroke .cap.start {
+			left: var(--l-stroke-cap-start-x, 14%);
+			top: var(--l-stroke-cap-start-y, 81%);
+			background-color: var(--l-stroke-cap-start-color, #ddd);
+		}
+		
+		.is-round .lime-circle__stroke .cap.end {
+			left: var(--l-stroke-cap-end-x, 14%);
+			top: var(--l-stroke-cap-end-y, 81%);
+			z-index: -1;
+			background-color: var(--l-stroke-cap-end-color, #ddd);
+		}
+		.clockwise .lime-circle__inner{
+			transform: scale(-1,1);
+		}
+	</style>
+</head>
+<body>
+	<div class="lime-circle">
+		<div class="lime-circle__trail">
+			<i class="cap start"></i>
+			<i class="cap end"></i>
+		</div>
+		<div class="lime-circle__stroke">
+			<i class="cap start"></i>
+			<i class="cap end"></i>
+		</div>
+	</div>
+	<script>
+		function toStyle(obj) {
+			let str = ''
+			for (const key in obj) {
+				str += `${key}:${obj[key]};`
+			}
+			return str
+		}
+		function setStyle(type, style) {
+			if(!type) {
+				const trail = document.querySelector('.lime-circle__trail')
+				trail.style = toStyle(style) 
+			} else {
+				const stroke = document.querySelector('.lime-circle__stroke')
+				stroke.style = toStyle(style) 
+			}
+			// trail.style.background = 'red'
+			// trail.setAttribute()
+			// trail.style.setProperty（'--color','#cd0000'）；
+		}
+		// type 0删除 1增加
+		function setClass(target, className, type) {
+			const box = document.querySelector(target)
+			if(!type) {
+				box.classList.remove(className)
+			} else {
+				box.classList.add(className)
+			}
+		}
+		setStyle(0, 
+		{
+			    "mask": "radial-gradient(transparent 65.5px, #000 66px)",
+			    "-webkit-mask": "radial-gradient(transparent 65.5px, #000 66px)",
+			    "background": "conic-gradient(from 225deg, #ddd 0%, #ddd 75%, transparent 75%, transparent 100%)",
+			    "--l-trail-cap-start-x": "20.209632098128225px",
+			    "--l-trail-cap-start-y": "117.79036790187178px",
+			    "--l-trail-cap-end-x": "117.79036790187178px",
+			    "--l-trail-cap-end-y": "117.79036790187178px",
+			    "--l-trail-cap-color": "#ddd",
+			    "--l-trail-cap-size": "6px"
+			}
+		)
+		
+		// setStyle(1,
+		// {
+		//     "mask": "radial-gradient(transparent 65.5px, #000 66px)",
+		//     "-webkit-mask": "radial-gradient(transparent 65.5px, #000 66px)",
+		//     "background": "conic-gradient(from 225deg, transparent 0%,#0000ff 0%,#ff0000 calc(var(--l-percent) * 1),transparent var(--l-percent), transparent 75%)",
+		//     "--l-percent": "75%",
+		//     "--l-stroke-cap-start-color": "#0000ff",
+		//     "--l-stroke-cap-end-color": "#ff0000",
+		//     "--l-stroke-cap-start-x": "20.209632098128225px",
+		//     "--l-stroke-cap-start-y": "117.79036790187178px",
+		//     "--l-stroke-cap-end-x": "117.79036790187179px",
+		//     "--l-stroke-cap-end-y": "117.79036790187178px",
+		//     "--l-stroke-cap-size": "6px"
+		// }
+		// )
+	</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "健康资讯",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-demo-header": "/GraceUI5/components/gui-demo-header"
+  }
+}

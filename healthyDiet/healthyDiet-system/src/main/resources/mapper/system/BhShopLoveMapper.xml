@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhShopLoveMapper">
+    
+    <resultMap type="BhShopLove" id="BhShopLoveResult">
+        <result property="uid"    column="uid"    />
+        <result property="shopId"    column="shop_id"    />
+    </resultMap>
+
+    <sql id="selectBhShopLoveVo">
+        select uid, shop_id from bh_shop_love
+    </sql>
+
+    <select id="selectBhShopLoveList" parameterType="BhShopLove" resultMap="BhShopLoveResult">
+        <include refid="selectBhShopLoveVo"/>
+        <where>  
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="shopId != null "> and shop_id = #{shopId}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhShopLoveByUid" parameterType="Long" resultMap="BhShopLoveResult">
+        <include refid="selectBhShopLoveVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertBhShopLove" parameterType="BhShopLove">
+        insert into bh_shop_love
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="shopId != null">shop_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="shopId != null">#{shopId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhShopLove" parameterType="BhShopLove">
+        update bh_shop_love
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="shopId != null">shop_id = #{shopId},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteBhShopLoveByUid" parameterType="Long">
+        delete from bh_shop_love where uid = #{uid}
+    </delete>
+
+    <delete id="deleteBhShopLoveByUidAndShopId" parameterType="BhShopLove">
+        delete from bh_shop_love where uid = #{uid} and shop_id = #{shopId}
+    </delete>
+
+    <delete id="deleteBhShopLoveByUids" parameterType="String">
+        delete from bh_shop_love where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

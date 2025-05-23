@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-demo-header": "/GraceUI5/components/gui-demo-header",
+    "gui-box-banner": "/GraceUI5/components/gui-box-banner"
+  }
+}

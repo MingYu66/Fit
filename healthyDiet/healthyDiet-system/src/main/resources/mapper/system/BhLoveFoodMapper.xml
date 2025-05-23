@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhLoveFoodMapper">
+    
+    <resultMap type="BhLoveFood" id="BhLoveFoodResult">
+        <result property="uid"    column="uid"    />
+        <result property="fid"    column="fid"    />
+    </resultMap>
+
+    <sql id="selectBhLoveFoodVo">
+        select uid, fid from bh_love_food
+    </sql>
+
+    <select id="selectBhLoveList" parameterType="BhLoveFood" resultMap="BhLoveFoodResult">
+        select *  from bh_love_food left join  bh_food ON bh_love_food.fid = bh_food.id
+        <where>
+            <if test="uid != null "> and bh_love_food.uid = #{uid}</if>
+        </where>
+    </select>
+    <select id="selectBhLoveFoodList" parameterType="BhLoveFood" resultMap="BhLoveFoodResult">
+        select uid, fid  from bh_love_food
+        <where>  
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="fid != null "> and fid = #{fid}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhLoveFoodByUid" parameterType="Long" resultMap="BhLoveFoodResult">
+        <include refid="selectBhLoveFoodVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertBhLoveFood" parameterType="BhLoveFood">
+        insert into bh_love_food
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="fid != null">fid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="fid != null">#{fid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhLoveFood" parameterType="BhLoveFood">
+        update bh_love_food
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="fid != null">fid = #{fid},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+
+    <delete id="deleteBhLove" parameterType="BhLoveFood">
+        delete from bh_love_food
+        <where>
+            and uid = #{uid}
+             and fid = #{fid}
+        </where>
+    </delete>
+
+
+
+    <delete id="deleteBhLoveFoodByUid" parameterType="Long">
+        delete from bh_love_food where uid = #{uid}
+    </delete>
+
+    <delete id="deleteBhLoveFoodByUids" parameterType="String">
+        delete from bh_love_food where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

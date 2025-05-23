@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhNoteMapper">
+    
+    <resultMap type="BhNote" id="BhNoteResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="content"    column="content"    />
+        <result property="title"    column="title"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="emoji"    column="emoji"    />
+    </resultMap>
+
+    <sql id="selectBhNoteVo">
+        select id, user_id, content, title, create_time, emoji from bh_note
+    </sql>
+
+    <select id="selectBhNoteList" parameterType="BhNote" resultMap="BhNoteResult">
+        <include refid="selectBhNoteVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="params.beginCreateTime != null and params.beginCreateTime != '' and params.endCreateTime != null and params.endCreateTime != ''"> and create_time between #{params.beginCreateTime} and #{params.endCreateTime}</if>
+            <if test="emoji != null  and emoji != ''"> and emoji = #{emoji}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhNoteById" parameterType="Long" resultMap="BhNoteResult">
+        <include refid="selectBhNoteVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBhNote" parameterType="BhNote">
+        insert into bh_note
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="content != null">content,</if>
+            <if test="title != null">title,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="emoji != null">emoji,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="content != null">#{content},</if>
+            <if test="title != null">#{title},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="emoji != null">#{emoji},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhNote" parameterType="BhNote">
+        update bh_note
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="emoji != null">emoji = #{emoji},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhNoteById" parameterType="Long">
+        delete from bh_note where id = #{id}
+    </delete>
+
+    <delete id="deleteBhNoteByIds" parameterType="String">
+        delete from bh_note where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

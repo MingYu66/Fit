@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhMoveMapper">
+    
+    <resultMap type="BhMove" id="BhMoveResult">
+        <result property="id"    column="id"    />
+        <result property="img"    column="img"    />
+        <result property="name"    column="name"    />
+        <result property="calory"    column="calory"    />
+        <result property="weight"    column="weight"    />
+        <result property="type"    column="type"    />
+    </resultMap>
+
+    <sql id="selectBhMoveVo">
+        select id, img, name, calory, weight, type from bh_move
+    </sql>
+
+    <select id="selectBhMoveList" parameterType="BhMove" resultMap="BhMoveResult">
+        <include refid="selectBhMoveVo"/>
+        <where>  
+            <if test="img != null  and img != ''"> and img = #{img}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="calory != null "> and calory = #{calory}</if>
+            <if test="weight != null "> and weight = #{weight}</if>
+        </where>
+    </select>
+    
+    <select id="selectBhMoveById" parameterType="Long" resultMap="BhMoveResult">
+        <include refid="selectBhMoveVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBhMove" parameterType="BhMove" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_move
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="img != null">img,</if>
+            <if test="name != null">name,</if>
+            <if test="calory != null">calory,</if>
+            <if test="weight != null">weight,</if>
+            <if test="type != null">type,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="img != null">#{img},</if>
+            <if test="name != null">#{name},</if>
+            <if test="calory != null">#{calory},</if>
+            <if test="weight != null">#{weight},</if>
+            <if test="type != null">#{type},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBhMove" parameterType="BhMove">
+        update bh_move
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="img != null">img = #{img},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="calory != null">calory = #{calory},</if>
+            <if test="weight != null">weight = #{weight},</if>
+            <if test="type != null">type = #{type},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhMoveById" parameterType="Long">
+        delete from bh_move where id = #{id}
+    </delete>
+
+    <delete id="deleteBhMoveByIds" parameterType="String">
+        delete from bh_move where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

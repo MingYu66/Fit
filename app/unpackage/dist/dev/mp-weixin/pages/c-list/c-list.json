@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-search": "/GraceUI5/components/gui-search",
+    "gui-modal": "/GraceUI5/components/gui-modal",
+    "uni-data-select": "/uni_modules/uni-data-select/components/uni-data-select/uni-data-select",
+    "guipopup": "/GraceUI5/components/gui-popup"
+  }
+}

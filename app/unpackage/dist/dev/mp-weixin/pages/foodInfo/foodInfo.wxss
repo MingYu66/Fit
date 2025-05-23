@@ -1,0 +1,128 @@
+
+.modal-btns.data-v-3e616ff4 {
+	line-height: 88rpx;
+	font-size: 26rpx;
+	text-align: center;
+	width: 200rpx;
+}
+.list-txt view.data-v-3e616ff4 {
+	border-bottom: 1px solid ghostwhite;
+}
+.list-txt view view.data-v-3e616ff4 {
+	border-bottom: 0px;
+	width: 35%;
+	text-align: center;
+}
+.list-txt view ._span.data-v-3e616ff4 {
+	width: 20%;
+	text-align: center;
+}
+.list-txt text.data-v-3e616ff4 {
+	width: 33%;
+	text-align: right;
+}
+.card-body11.data-v-3e616ff4 {
+
+	width: 100%;
+	text-align: right;
+}
+.r_txt text.data-v-3e616ff4 {
+	margin-left: 15rpx;
+}
+.card-body12.data-v-3e616ff4 {
+	text-align: left;
+}
+
+/* 一行4格演示 */
+.gui-grids4.data-v-3e616ff4 {
+	width: 50%;
+}
+.card-body.data-v-3e616ff4 {
+	margin-top: 50rpx;
+	padding: 20rpx;
+	background-color: white;
+	/* border: 1upx solid red; */
+}
+.t_c view.data-v-3e616ff4 {
+	margin-top: 5rpx;
+}
+.yuan_text.data-v-3e616ff4 {
+	width: 30%;
+	text-align: center;
+}
+.nav.data-v-3e616ff4 {
+	margin: 20rpx 0 20rpx 0;
+}
+.btn.data-v-3e616ff4 {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.btna.data-v-3e616ff4 {
+	width: 160rpx;
+	height: 64rpx;
+	background: #06D368;
+	border-radius: 50rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.btn_name.data-v-3e616ff4 {
+	font-size: 32rpx;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+.gui-card-view.data-v-3e616ff4 {
+	background-color: #FFFFFF;
+	padding: 25rpx;
+}
+.gui-card-body.data-v-3e616ff4 {
+	padding-bottom: 25rpx;
+}
+.gui-card-img.data-v-3e616ff4 {
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 80rpx;
+}
+.gui-card-desc.data-v-3e616ff4 {
+	width: 400rpx;
+	margin-left: 25rpx;
+	flex: 1;
+}
+.gui-card-name.data-v-3e616ff4 {
+	font-size: 28rpx;
+	color: #333333;
+	line-height: 40rpx;
+	margin-right: 20rpx;
+}
+.gui-card-text.data-v-3e616ff4 {
+	line-height: 40rpx;
+	font-size: 24rpx;
+	color: #888888;
+}
+.gui-card-footer.data-v-3e616ff4 {
+	margin-top: 25rpx;
+}
+.gui-card-footer-item.data-v-3e616ff4 {
+	width: 100rpx;
+	text-align: center;
+	flex: 1;
+	line-height: 38rpx;
+	font-size: 26rpx;
+	color: #666666;
+}
+
+/* #ifndef APP-NVUE */
+.gui-card-footer-item.data-v-3e616ff4 {
+	display: block;
+}
+.gui-box-shadow.data-v-3e616ff4 {
+	box-shadow: 0px 0px 3rpx #999999;
+}
+.gui-grids-icon.data-v-3e616ff4 {
+	color: rgba(69, 90, 100, 0.6);
+}
+.gui-grids-text.data-v-3e616ff4 {
+	color: rgba(69, 90, 100, 0.8);
+}
+

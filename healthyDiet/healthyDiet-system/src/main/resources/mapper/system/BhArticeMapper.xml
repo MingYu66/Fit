@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthyDiet.system.mapper.BhArticeMapper">
+
+    <resultMap type="BhArtice" id="BhArticeResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="uid"    column="uid"    />
+        <result property="content"    column="content"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="count"    column="count"    />
+        <result property="type"    column="type"    />
+        <result property="imgs"    column="imgs"    />
+    </resultMap>
+
+    <sql id="selectBhArticeVo">
+        select id, name, uid, content, create_time, count, type, imgs from bh_artice
+    </sql>
+
+    <select id="selectBhArticeList" parameterType="BhArtice" resultMap="BhArticeResult">
+        <include refid="selectBhArticeVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="uid != null "> and uid = #{uid}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="count != null "> and count = #{count}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="imgs != null  and imgs != ''"> and imgs = #{imgs}</if>
+        </where>
+        order by id desc
+    </select>
+
+    <select id="selectBhArticeById" parameterType="Long" resultMap="BhArticeResult">
+        <include refid="selectBhArticeVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertBhArtice" parameterType="BhArtice" useGeneratedKeys="true" keyProperty="id">
+        insert into bh_artice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="uid != null">uid,</if>
+            <if test="content != null">content,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="count != null">count,</if>
+            <if test="type != null">type,</if>
+            <if test="imgs != null">imgs,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="uid != null">#{uid},</if>
+            <if test="content != null">#{content},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="count != null">#{count},</if>
+            <if test="type != null">#{type},</if>
+            <if test="imgs != null">#{imgs},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBhArtice" parameterType="BhArtice">
+        update bh_artice
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="uid != null">uid = #{uid},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="count != null">count = #{count},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="imgs != null">imgs = #{imgs},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBhArticeById" parameterType="Long">
+        delete from bh_artice where id = #{id}
+    </delete>
+
+    <delete id="deleteBhArticeByIds" parameterType="String">
+        delete from bh_artice where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

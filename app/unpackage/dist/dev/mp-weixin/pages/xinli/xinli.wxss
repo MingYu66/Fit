@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 卡片宽度 = 外层宽度 （690 / 一行数量 2） - 间距 */
+/* 实际使用过程中请跟据项目要求进行宽度修改实现一行多列 */
+.gui-card-item{width:330rpx; margin-bottom:30rpx;}
+/* 图片宽度、高度修饰 */
+.gui-card-img{width:330rpx; height:191rpx; overflow:hidden; position:relative;}
+/* 标题顶部间距 */
+.gui-card-title{margin-top:3px;}
+/* 描述顶部间距 */
+.gui-card-desc{margin-top:3px;}
+/* 定位标签样式 */
+.gui-card-tip{width:68rpx; height:40rpx; line-height:40rpx; text-align:center;}
+/* 定位于图片上方的标题修饰 */
+.gui-card-mask-title{line-height:40rpx; padding:10rpx; width:330rpx;}
+

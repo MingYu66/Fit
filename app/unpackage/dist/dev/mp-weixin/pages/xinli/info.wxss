@@ -1,0 +1,28 @@
+
+.gui-course-video {
+	width: 750rpx;
+}
+.gui-course-info {
+	background-color: #FFFFFF;
+	padding: 20rpx 25rpx;
+}
+.gui-course-info-body {
+	width: 200rpx;
+	flex: 1;
+}
+.gui-course-info-share {
+	width: 100rpx;
+}
+.gui-course-title {
+	font-size: 32rpx;
+	line-height: 50rpx;
+	color: #333333;
+}
+.gui-course-info-text {
+	font-size: 22rpx;
+	color: #999999;
+	line-height: 38rpx;
+	margin-right: 30rpx;
+	margin-top: 8rpx;
+}
+

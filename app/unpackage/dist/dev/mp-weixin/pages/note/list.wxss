@@ -1,0 +1,34 @@
+
+page.data-v-65b5f21c {
+	background-color: #f0f1f3;
+}
+.active-color.data-v-65b5f21c {
+	color: #FFB347;
+}
+.gui-footer-icon-buttons.data-v-65b5f21c {
+	width: 130rpx;
+	height: 80rpx;
+	padding: 10rpx;
+	flex: 1;
+	position: relative;
+	margin: 0;
+	background-color: #F8F8F8;
+}
+.gui-footer-buttons-ab.data-v-65b5f21c {
+	position: absolute;
+	z-index: 101;
+	left: 325rpx;
+	top: 0rpx;
+	width: 110rpx;
+	height: 150rpx;
+}
+.gui-footer-buttons-ab-icon.data-v-65b5f21c {
+	width: 110rpx;
+	height: 110rpx;
+	line-height: 120rpx;
+	text-align: center;
+	font-size: 68rpx;
+	background-color: #F7F8FA;
+	border-radius: 100rpx;
+}
+
