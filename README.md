@@ -68,22 +68,19 @@ npm install
 4. 运行到微信开发者工具
 
 ### 管理后台
-1. 进入mint-ui目录
+1. 使用HBuilderX打开mint-ui目录
 ```bash
 cd mint-ui
 ```
-2. 安装依赖
+
+2. 启动
 ```bash
-npm install
-```
-3. 启动开发服务器
-```bash
-npm run serve
+npm run dev
 ```
 
 ### 服务器端
-1. 进入healthyDiet目录
-2. 配置数据库（参考sql目录下的脚本）
+1. 进入healthyDiet-admin目录
+2. 配置数据库
 3. 修改配置文件
 4. 使用Maven构建项目
 ```bash
@@ -92,10 +89,8 @@ mvn clean install
 5. 运行项目
 ```bash
 # Windows
-ry.bat
+RuoYiApplication
 
-# Linux/Mac
-./ry.sh
 ```
 
 ## 项目结构
